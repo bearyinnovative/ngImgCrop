@@ -2,10 +2,10 @@
  * ngImgCrop v0.3.2
  * https://github.com/alexk111/ngImgCrop
  *
- * Copyright (c) 2014 Alex Kaul
+ * Copyright (c) 2015 Alex Kaul
  * License: MIT
  *
- * Generated at Wednesday, December 3rd, 2014, 3:54:12 PM
+ * Generated at Monday, March 2nd, 2015, 12:23:58 PM
  */
 (function() {
 'use strict';
@@ -1457,11 +1457,11 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
           canvasDims[1]=minCanvasDims[1];
           canvasDims[0]=canvasDims[1]*imageRatio;
         }
-        elCanvas.prop('width',canvasDims[0]).prop('height',canvasDims[1]).css({'margin-left': -canvasDims[0]/2+'px', 'margin-top': -canvasDims[1]/2+'px'});
+        elCanvas.prop('width',canvasDims[0]).prop('height',canvasDims[1]).css({'margin-left': -canvasDims[0]/2+'px'});
 
         theArea.setX(ctx.canvas.width/2);
         theArea.setY(ctx.canvas.height/2);
-        theArea.setSize(Math.min(200, ctx.canvas.width/2, ctx.canvas.height/2));
+        theArea.setSize(Math.max(200, Math.min(ctx.canvas.width, ctx.canvas.height)));
       } else {
         elCanvas.prop('width',0).prop('height',0).css({'margin-top': 0});
       }
@@ -1858,16 +1858,16 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function($timeo
       });
 
       // Update CropHost dimensions when the directive element is resized
-      scope.$watch(
-        function () {
-          return [element[0].clientWidth, element[0].clientHeight];
-        },
-        function (value) {
-          cropHost.setMaxDimensions(value[0],value[1]);
-          updateResultImage(scope);
-        },
-        true
-      );
+      // scope.$watch(
+      //   function () {
+      //     return [element[0].clientWidth, element[0].clientHeight];
+      //   },
+      //   function (value) {
+      //     cropHost.setMaxDimensions(value[0],value[1]);
+      //     updateResultImage(scope);
+      //   },
+      //   true
+      // );
 
       // Destroy CropHost Instance when the directive is destroying
       scope.$on('$destroy', function(){
@@ -1876,4 +1876,5 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function($timeo
     }
   };
 }]);
+
 }());
