@@ -3,15 +3,15 @@
     "name": "Alex Kaul",
     "email": "alexkaul@googlemail.com"
   },
-  "name": "ng-img-crop",
+  "name": "@beary/ng-img-crop",
   "prettyName": "ngImgCrop",
   "version": "0.3.51",
   "description": "Image crop directive for AngularJS",
   "license": "MIT",
-  "homepage": "https://github.com/alexk111/ngImgCrop",
+  "homepage": "https://github.com/bearyinnovative/ngImgCrop",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexk111/ngImgCrop.git"
+    "url": "https://github.com/bearyinnovative/ngImgCrop.git"
   },
   "main": "compile/minified/ng-img-crop.js",
   "dependencies": {},
